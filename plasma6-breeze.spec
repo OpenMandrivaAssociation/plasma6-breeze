@@ -23,7 +23,7 @@ BuildRequires: pkgconfig(xcb)
 BuildRequires: cmake(KF6DocTools)
 BuildRequires: cmake(Gettext)
 BuildRequires: cmake(ECM)
-BuildRequires: cmake(KDecoration2)
+BuildRequires: cmake(KDecoration2) >= 5.27.80
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6Service)
 BuildRequires: cmake(KF6ConfigWidgets)
