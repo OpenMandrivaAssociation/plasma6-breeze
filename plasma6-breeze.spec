@@ -32,7 +32,6 @@ BuildRequires: cmake(KF6KCMUtils)
 BuildRequires: cmake(KF6Plasma)
 BuildRequires: cmake(KF6Wayland)
 BuildRequires: cmake(KF6Kirigami2)
-BuildRequires: plasma-lookandfeelexplorer
 BuildRequires: pkgconfig(fftw3)
 
 %description
