@@ -1,6 +1,6 @@
 %define major %(echo %{version} |cut -d. -f1-3)
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define git 20230606
+%define git 20230609
 
 Name: plasma6-breeze
 Version:	5.240.0
@@ -66,7 +66,7 @@ based on %{name}.
 cat  *.lang >all.lang
 
 %files -f all.lang
-%{_bindir}/breeze-settings5
+%{_bindir}/breeze-settings6
 %{_libdir}/libbreezecommon6.so*
 %{_datadir}/kconf_update/breezetobreezelight.upd
 %{_datadir}/icons/breeze_cursors
