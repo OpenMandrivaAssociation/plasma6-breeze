@@ -1,6 +1,6 @@
 %define major %(echo %{version} |cut -d. -f1-3)
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define git 20230609
+%define git 20230707
 
 Name: plasma6-breeze
 Version:	5.240.0
@@ -70,7 +70,7 @@ cat  *.lang >all.lang
 %{_libdir}/libbreezecommon6.so*
 %{_datadir}/kconf_update/breezetobreezelight.upd
 %{_datadir}/icons/breeze_cursors
-%{_datadir}/icons/Breeze_Snow
+%{_datadir}/icons/Breeze_Light
 %{_datadir}/wallpapers/*
 %{_datadir}/kstyle/themes/breeze.themerc
 %{_libdir}/kconf_update_bin/breezetobreezelight
@@ -85,10 +85,11 @@ cat  *.lang >all.lang
 %{_datadir}/color-schemes/BreezeClassic.colors
 %{_datadir}/kconf_update/breezehighcontrasttobreezedark.upd
 %{_datadir}/kconf_update/breezetobreezeclassic.upd
-%{_qtdir}/plugins/plasma/kcms/breeze/kcm_breezedecoration.so
 %{_qtdir}/plugins/plasma/kcms/systemsettings_qwidgets/breezestyleconfig.so
 %{_datadir}/applications/breezestyleconfig.desktop
 %{_datadir}/applications/kcm_breezedecoration.desktop
+%dir %{_qtdir}/plugins/org.kde.kdecoration2.kcm
+%{_qtdir}/plugins/org.kde.kdecoration2.kcm/kcm_breezedecoration.so
 
 %files devel
 %{_libdir}/cmake/Breeze
