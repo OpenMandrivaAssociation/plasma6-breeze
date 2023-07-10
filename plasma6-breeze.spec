@@ -33,9 +33,11 @@ BuildRequires: cmake(KF6Plasma)
 BuildRequires: cmake(KF6Wayland)
 BuildRequires: cmake(KF6Kirigami2)
 BuildRequires: pkgconfig(fftw3)
+# Just to prevent Plasma 5 from being pulled in
+BuildRequires: plasma6-xdg-desktop-portal-kde
 
 %description
-The KDE 5 Breeze style.
+The KDE 6 Breeze style.
 
 %package devel
 Summary: Devel stuff for %{name}
