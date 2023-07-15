@@ -1,6 +1,6 @@
 %define major %(echo %{version} |cut -d. -f1-3)
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define git 20230707
+%define git 20230715
 
 Name: plasma6-breeze
 Version:	5.240.0
@@ -87,7 +87,7 @@ cat  *.lang >all.lang
 %{_datadir}/color-schemes/BreezeClassic.colors
 %{_datadir}/kconf_update/breezehighcontrasttobreezedark.upd
 %{_datadir}/kconf_update/breezetobreezeclassic.upd
-%{_qtdir}/plugins/plasma/kcms/systemsettings_qwidgets/breezestyleconfig.so
+%{_qtdir}/plugins/kstyle_config/breezestyleconfig.so
 %{_datadir}/applications/breezestyleconfig.desktop
 %{_datadir}/applications/kcm_breezedecoration.desktop
 %dir %{_qtdir}/plugins/org.kde.kdecoration2.kcm
