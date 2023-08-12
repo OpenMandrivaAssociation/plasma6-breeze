@@ -1,6 +1,6 @@
 %define major %(echo %{version} |cut -d. -f1-3)
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define git 20230802
+%define git 20230812
 
 Name: plasma6-breeze
 Version:	5.240.0
@@ -54,6 +54,7 @@ based on %{name}.
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
+	-DBUILD_QT5:BOOL=OFF \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
 
@@ -69,7 +70,6 @@ cat  *.lang >all.lang
 
 %files -f all.lang
 %{_bindir}/breeze-settings6
-%{_libdir}/libbreezecommon6.so*
 %{_datadir}/kconf_update/breezetobreezelight.upd
 %{_datadir}/icons/breeze_cursors
 %{_datadir}/icons/Breeze_Light
@@ -79,7 +79,7 @@ cat  *.lang >all.lang
 %{_datadir}/QtCurve
 %{_datadir}/color-schemes/BreezeDark.colors
 %{_datadir}/color-schemes/BreezeLight.colors
-%{_qtdir}/plugins/styles/breeze.so
+%{_qtdir}/plugins/styles/breeze6.so
 %{_qtdir}/plugins/org.kde.kdecoration2/*.so
 %{_iconsdir}/hicolor/scalable/apps/breeze-settings.svgz
 %{_libdir}/kconf_update_bin/breezehighcontrasttobreezedark
