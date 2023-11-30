@@ -3,8 +3,8 @@
 #define git 20231103
 
 Name: plasma6-breeze
-Version:	5.27.80
-Release:	%{?git:0.%{git}.}2
+Version:	5.90.0
+Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/master/breeze-master.tar.bz2#/breeze-%{git}.tar.bz2
 %else
@@ -29,8 +29,8 @@ BuildRequires: cmake(KF6Service)
 BuildRequires: cmake(KF6ConfigWidgets)
 BuildRequires: cmake(KF6FrameworkIntegration)
 BuildRequires: cmake(KF6KCMUtils)
-BuildRequires: cmake(KF6Plasma)
-BuildRequires: cmake(KF6Wayland)
+BuildRequires: cmake(Plasma) >= 5.90.0
+BuildRequires: cmake(Wayland) >= 5.90.0
 BuildRequires: cmake(KF6Kirigami2)
 BuildRequires: pkgconfig(fftw3)
 # Just to prevent Plasma 5 from being pulled in
