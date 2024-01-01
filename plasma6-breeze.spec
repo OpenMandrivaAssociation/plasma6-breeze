@@ -3,13 +3,14 @@
 #define git 20231103
 
 Name: plasma6-breeze
-Version:	5.90.0
+Version:	5.91.0
 Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/master/breeze-master.tar.bz2#/breeze-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{major}/breeze-%{version}.tar.xz
 %endif
+Patch0: https://invent.kde.org/plasma/breeze/-/commit/4ea1356e0219e33af8bb487bb47096fb55f9cc99.patch
 Summary: The KDE 6 Breeze style
 URL: http://kde.org/
 License: GPL
@@ -68,23 +69,17 @@ cat  *.lang >all.lang
 
 %files -f all.lang
 %{_bindir}/breeze-settings6
-%{_datadir}/kconf_update/breezetobreezelight.upd
 %{_datadir}/icons/breeze_cursors
 %{_datadir}/icons/Breeze_Light
 %{_datadir}/wallpapers/*
 %{_datadir}/kstyle/themes/breeze.themerc
-%{_libdir}/kconf_update_bin/breezetobreezelight
 %{_datadir}/QtCurve
 %{_datadir}/color-schemes/BreezeDark.colors
 %{_datadir}/color-schemes/BreezeLight.colors
 %{_qtdir}/plugins/styles/breeze6.so
 %{_qtdir}/plugins/org.kde.kdecoration2/*.so
 %{_iconsdir}/hicolor/scalable/apps/breeze-settings.svgz
-%{_libdir}/kconf_update_bin/breezehighcontrasttobreezedark
-%{_libdir}/kconf_update_bin/breezetobreezeclassic
 %{_datadir}/color-schemes/BreezeClassic.colors
-%{_datadir}/kconf_update/breezehighcontrasttobreezedark.upd
-%{_datadir}/kconf_update/breezetobreezeclassic.upd
 %{_qtdir}/plugins/kstyle_config/breezestyleconfig.so
 %{_datadir}/applications/breezestyleconfig.desktop
 %{_datadir}/applications/kcm_breezedecoration.desktop
