@@ -3,14 +3,13 @@
 #define git 20231103
 
 Name: plasma6-breeze
-Version:	5.91.0
+Version:	5.92.0
 Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/master/breeze-master.tar.bz2#/breeze-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{major}/breeze-%{version}.tar.xz
 %endif
-Patch0: https://invent.kde.org/plasma/breeze/-/commit/4ea1356e0219e33af8bb487bb47096fb55f9cc99.patch
 Summary: The KDE 6 Breeze style
 URL: http://kde.org/
 License: GPL
