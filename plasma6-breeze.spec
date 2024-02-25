@@ -43,6 +43,7 @@ BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5X11Extras)
+BuildRequires: cmake(KF5Kirigami2)
 %endif
 
 %description
