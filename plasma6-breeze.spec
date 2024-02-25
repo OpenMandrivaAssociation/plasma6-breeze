@@ -4,6 +4,8 @@
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
+%bcond_without qt5
+
 Name: plasma6-breeze
 Version:	6.0.0
 Release:	%{?git:0.%{git}.}1
@@ -35,9 +37,23 @@ BuildRequires: cmake(Plasma) >= 5.90.0
 BuildRequires: cmake(Wayland) >= 5.90.0
 BuildRequires: cmake(KF6Kirigami2)
 BuildRequires: pkgconfig(fftw3)
+%if %{with qt5}
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5DBus)
+BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5X11Extras)
+%endif
 
 %description
 The KDE 6 Breeze style.
+
+%package qt5
+Summary: The Plasma 6 Breeze style for Qt 5.x applications
+Group: Graphical desktop/KDE
+
+%description qt5
+The Plasma 6 Breeze style for Qt 5.x applications
 
 %package devel
 Summary: Devel stuff for %{name}
@@ -54,7 +70,7 @@ based on %{name}.
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
-	-DBUILD_QT5:BOOL=OFF \
+	-DBUILD_QT5:BOOL=%{?with_qt5:ON}%{!?with_qt5:OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
 
@@ -86,6 +102,11 @@ cat  *.lang >all.lang
 %{_datadir}/applications/kcm_breezedecoration.desktop
 %dir %{_qtdir}/plugins/org.kde.kdecoration2.kcm
 %{_qtdir}/plugins/org.kde.kdecoration2.kcm/kcm_breezedecoration.so
+
+%if %{with qt5}
+%files qt5
+%{_libdir}/qt5/plugins/styles/breeze5.so
+%endif
 
 %files devel
 %{_libdir}/cmake/Breeze
