@@ -7,8 +7,8 @@
 %bcond_without qt5
 
 Name: plasma6-breeze
-Version:	6.0.2
-Release:	%{?git:0.%{git}.}2
+Version:	6.0.3
+Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/%{gitbranch}/breeze-%{gitbranchd}.tar.bz2#/breeze-%{git}.tar.bz2
 %else
@@ -44,6 +44,12 @@ BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: cmake(KF5Kirigami2)
+BuildRequires: cmake(KF5CoreAddons)
+BuildRequires: cmake(KF5Config)
+BuildRequires: cmake(KF5ConfigWidgets)
+BuildRequires: cmake(KF5GuiAddons)
+BuildRequires: cmake(KF5IconThemes)
+BuildRequires: cmake(KF5WindowSystem)
 %endif
 
 %description
