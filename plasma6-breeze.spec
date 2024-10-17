@@ -15,7 +15,7 @@ Source0:	https://invent.kde.org/plasma/breeze/-/archive/%{gitbranch}/breeze-%{gi
 Source0: http://download.kde.org/%{stable}/plasma/%{major}/breeze-%{version}.tar.xz
 %endif
 Summary: The KDE 6 Breeze style
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake(Qt6)
