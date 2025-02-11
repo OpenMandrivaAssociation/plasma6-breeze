@@ -7,7 +7,7 @@
 %bcond_without qt5
 
 Name: plasma6-breeze
-Version:	6.2.5
+Version:	6.3.0
 Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/%{gitbranch}/breeze-%{gitbranchd}.tar.bz2#/breeze-%{git}.tar.bz2
@@ -27,7 +27,7 @@ BuildRequires: pkgconfig(xcb)
 BuildRequires: cmake(KF6DocTools)
 BuildRequires: cmake(Gettext)
 BuildRequires: cmake(ECM)
-BuildRequires: cmake(KDecoration2) >= 5.27.80
+BuildRequires: cmake(KDecoration3)
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6Service)
 BuildRequires: cmake(KF6ConfigWidgets)
@@ -93,6 +93,7 @@ cat  *.lang >all.lang
 
 %files -f all.lang
 %{_bindir}/breeze-settings6
+%{_bindir}/kcursorgen
 %{_datadir}/icons/breeze_cursors
 %{_datadir}/icons/Breeze_Light
 %{_datadir}/wallpapers/*
@@ -101,14 +102,14 @@ cat  *.lang >all.lang
 %{_datadir}/color-schemes/BreezeDark.colors
 %{_datadir}/color-schemes/BreezeLight.colors
 %{_qtdir}/plugins/styles/breeze6.so
-%{_qtdir}/plugins/org.kde.kdecoration2/*.so
+%{_qtdir}/plugins/org.kde.kdecoration3/*.so
 %{_iconsdir}/hicolor/scalable/apps/breeze-settings.svgz
 %{_datadir}/color-schemes/BreezeClassic.colors
 %{_qtdir}/plugins/kstyle_config/breezestyleconfig.so
 %{_datadir}/applications/breezestyleconfig.desktop
 %{_datadir}/applications/kcm_breezedecoration.desktop
-%dir %{_qtdir}/plugins/org.kde.kdecoration2.kcm
-%{_qtdir}/plugins/org.kde.kdecoration2.kcm/kcm_breezedecoration.so
+%dir %{_qtdir}/plugins/org.kde.kdecoration3.kcm
+%{_qtdir}/plugins/org.kde.kdecoration3.kcm/kcm_breezedecoration.so
 
 %if %{with qt5}
 %files qt5
