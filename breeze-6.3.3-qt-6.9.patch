@@ -1,0 +1,11 @@
+diff -up breeze-6.3.3/cursors/src/kcursorgen/main.cpp.omv~ breeze-6.3.3/cursors/src/kcursorgen/main.cpp
+--- breeze-6.3.3/cursors/src/kcursorgen/main.cpp.omv~	2025-03-20 14:26:35.393988559 +0100
++++ breeze-6.3.3/cursors/src/kcursorgen/main.cpp	2025-03-20 14:26:42.348048936 +0100
+@@ -9,6 +9,7 @@
+ #include <QCommandLineParser>
+ #include <QCoreApplication>
+ #include <QString>
++#include <QDebug>
+ 
+ int main(int argc, char **argv)
+ {

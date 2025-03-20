@@ -52,6 +52,9 @@ BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5WindowSystem)
 %endif
 
+%patchlist
+breeze-6.3.3-qt-6.9.patch
+
 %description
 The KDE 6 Breeze style.
 
