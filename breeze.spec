@@ -6,9 +6,9 @@
 
 %bcond_without qt5
 
-Name: plasma6-breeze
+Name: breeze
 Version:	6.3.4
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}3
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/breeze/-/archive/%{gitbranch}/breeze-%{gitbranchd}.tar.bz2#/breeze-%{git}.tar.bz2
 %else
@@ -51,6 +51,12 @@ BuildRequires: cmake(KF5GuiAddons)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5WindowSystem)
 %endif
+BuildSystem: cmake
+BuildOption: -DBUILD_QCH:BOOL=ON
+BuildOption: -DBUILD_QT5:BOOL=%{?with_qt5:ON}%{!?with_qt5:OFF}
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+# Renamed after 6.0 2025-05-01
+%rename plasma6-breeze
 
 %patchlist
 breeze-6.3.3-qt-6.9.patch
@@ -75,26 +81,7 @@ Provides: %{name}-devel = %{EVRD}
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
-%prep
-%autosetup -p1 -n breeze-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DBUILD_QT5:BOOL=%{?with_qt5:ON}%{!?with_qt5:OFF} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
-%find_lang breeze_style_config || touch breeze_style_config.lang
-%find_lang breeze_kwin_deco || touch breeze_kwin_deco.lang
-cat  *.lang >all.lang
-
-%files -f all.lang
+%files -f %{name}.lang
 %{_bindir}/breeze-settings6
 %{_bindir}/kcursorgen
 %{_datadir}/icons/breeze_cursors
